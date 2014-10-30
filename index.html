@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="my-components/templates.html">
+  </head>
+  <body>
+    <template is="auto-binding">
+      <h1>Hello World</h1>
+
+      <template bind ref="myTemplate">
+        When creating an instance, the content of this template will be ignored,
+        and the content of #myTemplate is used instead.
+      </template>
+    </template>
+
+    <script>
+    document.addEventListener('HTMLImportsLoaded', function() {
+      var link = document.querySelector('link[href$="templates.html"]');
+      document.body.appendChild(link.import.querySelector('#myTemplate'));
+    });
+    </script>
+  </body>
+</html>
